@@ -1,6 +1,7 @@
-FROM maven:amazoncorretto
+FROM owasp/dependency-check
 
 LABEL Description="Custom OWASP dependency-check image with pre-downloaded bases"
 
-RUN mvn org.owasp:dependency-check-maven:update-only -DdataDirectory=/owasp && \
-    rm -rf /root/.m2/
+USER root
+
+RUN /usr/share/dependency-check/bin/dependency-check.sh --updateonly
