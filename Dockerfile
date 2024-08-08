@@ -11,7 +11,6 @@ ADD https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabiliti
 #ADD https://static.nvd.nist.gov/feeds/xml/cpe/dictionary/official-cpe-dictionary_v2.3.xml.gz /usr/local/apache2/htdocs/official-cpe-dictionary_v2.3.xml.gz
 
 RUN wget https://static.nvd.nist.gov/feeds/xml/cpe/dictionary/official-cpe-dictionary_v2.3.xml.gz -O /usr/local/apache2/htdocs/official-cpe-dictionary_v2.3.xml.gz && \
-    ls-lah /usr/local/apache2/htdocs/official-cpe-dictionary_v2.3.xml.gz && \
     chmod +r /usr/local/apache2/htdocs/jsrepository.json && \
     chmod +r /usr/local/apache2/htdocs/official-cpe-dictionary_v2.3.xml.gz && \
     chmod +r /usr/local/apache2/htdocs/publishedSuppressions.xml && \
