@@ -23,6 +23,6 @@ jobs:
         password: ${{ secrets.DOCKER_PASS }}
     - uses: actions/checkout@v3
     - name: Set latest tag for the Docker image
-      run: docker build . --file Dockerfile --tag $LOGIN/dependency-check:latest
+      run: docker build . --file Dockerfile --build-arg APIKEY=${{ secrets.APIKEY }} --tag $LOGIN/dependency-check:latest
     - name: Push latest image to docker.io
       run: docker push $LOGIN/dependency-check:latest
