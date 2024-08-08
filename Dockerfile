@@ -42,7 +42,7 @@ RUN mkdir -p /usr/share/nginx/html/ &&\
           <p>A retireJsUrl file name is jsrepository.json.</p> \
           <p>For online documentation please refer to \
           <a href="https://jeremylong.github.io/DependencyCheck/">DependencyCheck documentation</a>.<br/> \
-          <p><em>Image has been created at $(date '+%d/%m/%Y %H:%M:%S').</em></p> \
+          <p><em>Image has been created at '$(date "+%d/%m/%Y_%H:%M:%S")'.</em></p> \
           </body></html>' > /usr/share/nginx/html/index.html 
 
 
