@@ -8,9 +8,11 @@ ENV DELAY=1000
 ADD https://raw.githubusercontent.com/Retirejs/retire.js/master/repository/jsrepository.json /usr/local/apache2/htdocs/jsrepository.json
 ADD https://jeremylong.github.io/DependencyCheck/suppressions/publishedSuppressions.xml /usr/local/apache2/htdocs/publishedSuppressions.xml
 ADD https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json /usr/local/apache2/htdocs/known_exploited_vulnerabilities.json
-ADD https://static.nvd.nist.gov/feeds/xml/cpe/dictionary/official-cpe-dictionary_v2.3.xml.gz /usr/local/apache2/htdocs/official-cpe-dictionary_v2.3.xml.gz
+#ADD https://static.nvd.nist.gov/feeds/xml/cpe/dictionary/official-cpe-dictionary_v2.3.xml.gz /usr/local/apache2/htdocs/official-cpe-dictionary_v2.3.xml.gz
 
-RUN chmod +r /usr/local/apache2/htdocs/jsrepository.json && \
+RUN wget https://static.nvd.nist.gov/feeds/xml/cpe/dictionary/official-cpe-dictionary_v2.3.xml.gz -O /usr/local/apache2/htdocs/official-cpe-dictionary_v2.3.xml.gz && \
+    ls-lah /usr/local/apache2/htdocs/official-cpe-dictionary_v2.3.xml.gz && \
+    chmod +r /usr/local/apache2/htdocs/jsrepository.json && \
     chmod +r /usr/local/apache2/htdocs/official-cpe-dictionary_v2.3.xml.gz && \
     chmod +r /usr/local/apache2/htdocs/publishedSuppressions.xml && \
     chmod +r /usr/local/apache2/htdocs/known_exploited_vulnerabilities.json && \
